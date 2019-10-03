@@ -1,0 +1,33 @@
+﻿@page "/ImageList"
+
+@using Model;
+@inject Services.ImageService ImageManager
+
+<h3>Display Images from the server</h3>
+
+
+
+@if (files == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+
+    @foreach (var file in files)
+    {
+        <img src="@file.DisplayURL" alt="@file.Name" class="image-display">
+    }
+
+}
+
+@code {
+    @code {
+        List<ImageSpec> files;
+
+        protected override async Task OnInitializedAsync()
+        {
+            files = await ImageManager.GetFileList();
+        }
+    }
+}
