@@ -1,4 +1,4 @@
-# Blazor Components
+# Blazor Display Images
 
 This project was created to help me learn and remember displaying an image in a Blazor Application.
 
